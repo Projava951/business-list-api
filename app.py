@@ -15,7 +15,8 @@ def search():
         max_count = query["max_count"]
 
         keyword = industry + " in " + location
-        print(queries)
+        queries[0]["keyword"] = keyword
+        queries[0]["max_results"] = max_count
         launch_tasks(*tasks_to_be_run)
         return query, 201
     return {"error": "Request must be JSON"}, 415
